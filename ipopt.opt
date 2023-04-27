@@ -1,0 +1,22 @@
+check_derivatives_for_naninf yes
+derivative_test_print_all yes
+derivative_test none
+
+max_iter 100000
+
+acceptable_tol 1e-06
+bound_push 1e-06
+mu_target 0
+
+linear_solver MA57
+ma57_automatic_scaling no
+
+bound_mult_init_method mu-based
+
+mu_strategy adaptive
+adaptive_mu_globalization obj-constr-filter
+corrector_type affine
+
+print_level 5
+print_timing_statistics yes
+print_user_options yes
