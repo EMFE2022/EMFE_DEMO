@@ -61,7 +61,7 @@ This is the code for the paper [Enhanced moving finite element method based on e
 
 The following tools were used in this project:
 
-- [ipopt](https://coin-or.github.io/Ipopt/)(with MA57)
+- [ipopt](https://coin-or.github.io/Ipopt/)(with [MA57 linear solver](https://www.hsl.rl.ac.uk/catalogue/ma57.html))
 - [pyomo](https://github.com/Pyomo/pyomo)
 - [numpy](https://numpy.org/)
 - [scipy](https://scipy.org/)
