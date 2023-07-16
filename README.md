@@ -95,7 +95,7 @@ $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 $   self.m.noncollocation_error_magcon = Constraint(rule=self._noncollocation_error_magcon)
 # the optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_23_20
-# the the control sequence is bang-bang
+# the control sequence is bang-bang
 
 ```
 
