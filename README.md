@@ -73,6 +73,7 @@ The following tools were used in this project:
 ```bash
 
 #################### STEP 1 ###########################
+# run opt() function in main_lander.py
 # When using EMFE, in order to ensure the success rate of the solution，the problem without moving finite elements is solved by Simultaneous Approach first.
 # The following are the codes in the opt() function in main_lander.py
 $ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # You can use the opt() function in main_lander.py to calculate the initial data for EMFE and there is already an initial value in the /output/lander folder now
@@ -84,6 +85,7 @@ $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncolloca
 # In fact, the control sequence of the initial value given here is bang-bang, but the optimization result loses the bang-bang characteristic
 
 #################### STEP 2 ###########################
+# run opt_MFE() function in main_lander.py
 # Then use the result of the problem just solved by opt() function as the initial data to solve the EMFE problem
 # The following are the codes in the opt_MFE() function in main_lander.py
 $ initial_data_path = 'The address of the result folder of the just solved problem' #'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_22_38_template'
