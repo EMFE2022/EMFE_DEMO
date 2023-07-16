@@ -72,25 +72,28 @@ The following tools were used in this project:
 
 ```bash
 
-# When using EMFE, in order to ensure the success rate of the solution，the problem with the following parameters and constraints is solved first.
-# parameters (in opt_MFE())
-$ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' ## You can use the opt() function in main_lander.py to calculate the initial data for EMFE and there is already an initial value in the /output/lander folder now
+#################### step 1 ###########################
+# When using EMFE, in order to ensure the success rate of the solution，the problem without moving finite elements is solved by Simultaneous Approach first.
+# The following is the codes in the opt() function in main_lander.py
+$ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # You can use the opt() function in main_lander.py to calculate the initial data for EMFE and there is already an initial value in the /output/lander folder now
 $ load_MFE_data_flag = False
-# constraints (Lunar_lander_3DOF_MFE_model.py)
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
+# the optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
+#In fact, the control sequence of the initial value given here is bang-bang, but the optimization result loses the bang-bang characteristic
 
-#Then use the result of the problem just solved as the initial data to solve the complete EMFE problem
-# parameters (in opt_MFE())
+#################### step 2 ###########################
+# Then use the result of the problem just solved by opt() function as the initial data to solve the EMFE problem
+# The following is the codes in the opt_MFE() function in main_lander.py
 $ initial_data_path = 'The address of the result folder of the just solved problem' #'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_22_38_template'
 $ load_MFE_data_flag = True
-# constraints (Lunar_lander_3DOF_MFE_model.py)
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 $   self.m.noncollocation_error_magcon = Constraint(rule=self._noncollocation_error_magcon)
-
+# the optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_23_20
+# the the control sequence is bang-bang
 
 ```
 
