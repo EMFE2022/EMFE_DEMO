@@ -90,7 +90,7 @@ $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncolloca
 # Then use the result of the problem just solved as the initial data to solve the complete EMFE problem
 # The following are the changs of the codes in the opt_MFE() function 
 $ initial_data_path = 'The address of the result folder of the just solved problem' #'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_22_38_template'
-$ load_MFE_data_flag = True             # set finite element length free
+$ load_MFE_data_flag = True             # set finite element length free and update inital value of noncollocation_error
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
