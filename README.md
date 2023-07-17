@@ -72,7 +72,7 @@ The following tools were used in this project:
 
 ```bash
 
-# Run opt_MFE() function in main_lander.py (the opt() function solving the problem just formulated by Simultaneous Approach)
+# Run opt_MFE() function in main_lander.py (the opt() function solving the problem just formulated by Simultaneous Approach, when run opt()，the initial value of opt() can be any one in the /output/Lander/ folder)
 # For better success rate of the solution, the solution process is divided into 2 steps.
 #################### STEP 1 ###########################
 # The problem with the following parameters and constraints is solved first.
@@ -85,7 +85,7 @@ $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncolloca
 # The optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
 # The initial value given here is the result of EMFE. 
 # If the initial value of the EMFE result is used, step 1 may be redundant, but it can more intuitively show the effect of the moving finite element. Compared with initial data, the result becomes just like solving the problem formulated by Simultaneous Approach (no bang-bang structure and large non-collocation-point error) except the effection of control_gradient_con 
-# The result of the opt() function can be used as the initial value too, but due to initial value sensitivity, it may be necessary to add control_gradient_con and noncollocation_point_error_con gradually. When run opt()，the initial value of opt() can be any one in the /output/Lander/ folder
+# The result of the opt() function can be used as the initial value too, but due to initial value sensitivity, it may be necessary to add control_gradient_con and noncollocation_point_error_con gradually with mu_list[1]=0. When both control_gradient_con and noncollocation_point_error_con are added to the problem, set mu_list[1] to 1. In the above iterative process, the result of the previous iteration needs to be used as the initial value of the next iteration.
 
 #################### STEP 2 ###########################
 # Then use the result of the problem just solved as the initial data to solve the complete EMFE problem
