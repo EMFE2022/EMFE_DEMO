@@ -83,9 +83,8 @@ $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 # the optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
-# In fact, the initial value given here is the solution result of EMFE, but the control sequence of the solution result loses the bang-bang characteristics, and the error of its non-collocation point error becomes larger
-# the result of the opt() function should be used as the initial value too. Here, for the convenience of demonstration (for better contrast effect and reduced initial value sensitivity), the result of EMFE is used as the initial value.
-
+# the initial value given here is the solution result of EMFE for the better demonstration. The the control sequence of the solution result loses the bang-bang characteristics, and the error of its non-collocation point error becomes larger
+# the result of the opt() function can be used as the initial value too, and have no differece with EMFE reslut because of load_MFE_data_flag 
 
 #################### STEP 2 ###########################
 # Then use the result of the problem just solved as the initial data to solve the EMFE problem
