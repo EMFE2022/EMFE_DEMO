@@ -73,22 +73,22 @@ The following tools were used in this project:
 ```bash
 
 # Run opt_MFE() function in main_lander.py (the opt() function solving the problem just formulated by Simultaneous Approach)
-# Tor better success rate of the solution，the solution process is divided into 2 steps.
+# Tor better the success rate of the solution, the solution process is divided into 2 steps.
 #################### STEP 1 ###########################
 # The problem with the following parameters and constraints is solved first.
-# The following are the changs of the codes in opt_MFE() function 
+# The following are the changes to the codes in opt_MFE() function 
 $ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # there is already an initial value in the /output/lander folder now
 $ load_MFE_data_flag = False          # all finite element length (tf) are equal and fixed and intial value of noncollocation_error is zero
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 # The optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
-# For the better demonstration, the initial value given here is the result of EMFE. Compared with intial data, the result loses the bang-bang characteristics, and the error of its non-collocation-point error becomes the same as solving with only by Simultaneous Approach
-# The result of the opt() function can be used as the initial value too, and have no differece with EMFE reslut because of load_MFE_data_flag. But due to initial value sensitivity, it may be necessary to gradually add control_gradient_con and noncollocation_point_error_con. 
+# For a better demonstration, the initial value given here is the result of EMFE. Compared with initial data, the result loses the bang-bang characteristics, and its non-collocation-point error becomes the same as solving with only by Simultaneous Approach
+# The result of the opt() function can be used as the initial value too, and have no difference with EMFE result because of load_MFE_data_flag. But due to initial value sensitivity, it may be necessary toto add control_gradient_con and noncollocation_point_error_con gradually
 
 #################### STEP 2 ###########################
 # Then use the result of the problem just solved as the initial data to solve the complete EMFE problem
-# The following are the changs of the codes in the opt_MFE() function 
+# The following are the changes to the codes in the opt_MFE() function 
 $ initial_data_path = 'The address of the result folder of the just solved problem' #'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_22_38_template'
 $ load_MFE_data_flag = True             # set finite element length free and update inital value of noncollocation_error
 $ def add_numerical_error_constraints(self):
@@ -96,7 +96,7 @@ $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 $   self.m.noncollocation_error_magcon = Constraint(rule=self._noncollocation_error_magcon)
 # The optimized result in folder: output/Lander/opt_EMFE_2023_04_26_14_23_20
-# The control sequence is bang-bang and non-collocation point error is minimized
+# The control sequence is bang-bang and non-collocation-point error is minimized
 
 ```
 
