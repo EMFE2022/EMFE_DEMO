@@ -90,7 +90,7 @@ $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncolloca
 # The optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
 
 ### TIPS ###
-# 1) In order to reduce the initial value sensitivity, the initial value given here is the result of EMFE, otherwise the solution process may require a complex iterative process (presented in item 3)
+# 1) In order to reduce the initial value sensitivity and take into account the differences in the knowledge background of users, the initial value given here is the result of EMFE. Otherwise the solution process may require a complex iterative process (presented in item 3)
 # 2) If the initial value of the EMFE result is used, step 1 may be redundant, but it can more intuitively show the effect of the moving finite element. Compared with initial data, the result becomes just like solving the problem formulated by Simultaneous Approach (no bang-bang structure and large non-collocation-point error) except the effection of control_gradient_con. In addition, even if the  mu_list[1] is not zero, the non-collocation-point error is basically not optimized due to the fixed length of the finite element 
 # 3) The result of the opt() function can be used as the initial value too, but due to initial value sensitivity, it may be necessary to add control_gradient_con and noncollocation_point_error_con gradually with mu_list[1]=0 and load_MFE_data_flag = False. In the above iterative process, the result of the previous iteration needs to be used as the initial value of the next iteration.
 
