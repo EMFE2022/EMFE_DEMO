@@ -78,13 +78,13 @@ The following tools were used in this project:
 # the problem with the following parameters and constraints is solved first.
 # The following are the changs of the codes in opt_MFE() function 
 $ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # You can use the opt() function in main_lander.py to calculate the initial data for EMFE and there is already an initial value in the /output/lander folder now
-$ load_MFE_data_flag = False          # all finite element are equal and fixed
+$ load_MFE_data_flag = False          # all finite element are equal and fixed and intial value of noncollocation_error is zero
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
 $   self.m.noncollocation_point_error_con = ConstraintList(rule=self._noncollocation_point_error_con(self.m, self.ncp))
 # the optimized result in folder output/Lander/opt_EMFE_2023_04_26_14_22_38_template
 # In fact, the initial value given here is the solution result of EMFE, but the control sequence of the solution result loses the bang-bang characteristics, and the error of its non-collocation point error becomes larger
-# the result of the opt() function should be used as the initial value, but in order to overcome the initial value sensitivity of the nonlinear optimization, the solution process is relatively complicated (adding constraints step by step until the nonlinear solution is successfully solved under complete constraints, mainly relying on experience). Here, for the convenience of demonstration, the result of EMFE is used as the initial value. 
+# the result of the opt() function should be used as the initial value too. Here, for the convenience of demonstration (for better contrast effect and reduced initial value sensitivity), the result of EMFE is used as the initial value.
 
 
 #################### STEP 2 ###########################
