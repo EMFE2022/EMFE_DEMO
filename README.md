@@ -73,7 +73,7 @@ The following tools were used in this project:
 ```bash
 
 # Run opt_MFE() function in main_lander.py (the opt() function solving the problem just formulated by Simultaneous Approach)
-# Tor better the success rate of the solution, the solution process is divided into 2 steps.
+# For better success rate of the solution, the solution process is divided into 2 steps.
 #################### STEP 1 ###########################
 # The problem with the following parameters and constraints is solved first.
 # The following are the changes to the codes in opt_MFE() function 
