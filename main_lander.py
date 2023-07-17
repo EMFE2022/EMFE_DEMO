@@ -19,7 +19,7 @@ def opt():
     dirs_name = project_path + '/output/Lander/' + 'opt_' + local_time
     os.makedirs(dirs_name)
     #initial data in the output file
-    initial_data_path = 'YOUR ADRESS'
+    initial_data_path = 'YOUR ADRESS'    # any folder in output/Lander
     TempfileManager.tempdir = dirs_name
     #### parameter set ####
     nfe = 15
