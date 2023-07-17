@@ -77,7 +77,7 @@ The following tools were used in this project:
 #################### STEP 1 ###########################
 # The problem with the following parameters and constraints is solved first.
 # The following are the changs of the codes in opt_MFE() function 
-$ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # You can use the opt() function in main_lander.py to calculate the initial data for EMFE and there is already an initial value in the /output/lander folder now
+$ initial_data_path = 'YOUR_PROJECT_ADRESS/EMFE_demo/output/Lander/opt_EMFE_2023_04_26_14_21_09' # there is already an initial value in the /output/lander folder now
 $ load_MFE_data_flag = False          # all finite element length (tf) are equal and fixed and intial value of noncollocation_error is zero
 $ def add_numerical_error_constraints(self):
 $   self.m.control_gradient_con = ConstraintList(rule=self._control_gradient_con(self.m, self.ncp))
