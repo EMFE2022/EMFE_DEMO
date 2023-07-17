@@ -72,10 +72,10 @@ The following tools were used in this project:
 
 ```bash
 
-############################### warning ###############################
+############################### NOTICE ###############################
 # Due to the initial value sensitivity of nonlinear optimization, the current code has not yet realized the automatic solution process under the condition of unsatisfactory initial value
 
-############################### introduction ###############################
+############################### INTRODUCTION ###############################
 # Run opt_MFE() function in main_lander.py (the opt() function solving the problem just formulated by Simultaneous Approach, when run opt()，the initial value of opt() can be any one in the /output/Lander/ folder)
 # For better success rate of the solution, the solution process is divided into 2 steps.
 
